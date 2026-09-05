@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Katachi / Meshpoint"
+description = "A cinematic furniture studio website that combines KATACHI's crafted product experience with Meshpoint Systems' playful, video-led energy and chaos-to-control storytelling."
+version = "1.0.0"
+id = "artifacts/katachi-meshpoint"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 25960
+
+[services.development]
+run = "pnpm --filter @workspace/katachi-meshpoint run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/katachi-meshpoint", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/katachi-meshpoint/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "25960"
+BASE_PATH = "/"

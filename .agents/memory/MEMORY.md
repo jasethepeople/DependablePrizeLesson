@@ -1,0 +1,1 @@
+- [Meshpoint media extraction](meshpoint-media.md) — the authorized source site embeds its chaos intro as an inline base64 MP4; preserve it locally when reusing the clip.
